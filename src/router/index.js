@@ -35,6 +35,36 @@ const routes = [
                 },
             },
             {
+                path: "user",
+                name: "user",
+                component: function () {
+                    return import(
+                        /* webpackChunkName: "about" */
+                        "@/pages/user"
+                    );
+                },
+            },
+            {
+                path: "user/create",
+                name: "user-create",
+                component: function () {
+                    return import(
+                        /* webpackChunkName: "about" */
+                        "@/pages/user/create"
+                    );
+                },
+            },
+            {
+                path: "user/:id",
+                name: "user-edit",
+                component: function () {
+                    return import(
+                        /* webpackChunkName: "about" */
+                        "@/pages/user/_edit"
+                    );
+                },
+            },
+            {
                 path: "test",
                 name: "test",
                 component: function () {

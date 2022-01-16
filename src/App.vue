@@ -11,6 +11,9 @@ export default {
     components: {
         Loading,
     },
+    created() {
+        this.$store.commit("all/loading", false);
+    },
 };
 </script>
 

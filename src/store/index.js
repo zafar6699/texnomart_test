@@ -7,6 +7,7 @@ import createPersistedState from "vuex-persistedstate";
 import test from "./modules/test";
 import auth from "./modules/auth";
 import all from "./modules/all";
+import user from "./modules/user";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -14,6 +15,7 @@ export default new Vuex.Store({
         test,
         auth,
         all,
+        user,
     },
     plugins: [createPersistedState()],
 });

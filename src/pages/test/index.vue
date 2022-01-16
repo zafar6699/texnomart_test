@@ -70,7 +70,7 @@
                                             class="btn-delete"
                                             @click="openDelete(index)"
                                         >
-                                            delete
+                                            <i class="fa fa-trash"> </i>
                                         </button>
                                     </td>
                                 </tr>

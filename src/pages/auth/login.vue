@@ -150,7 +150,7 @@ export default {
         },
 
         loginUser() {
-            this.$v.$touch();
+            this.$v.user.$touch();
             sessionStorage.setItem("token", 1212);
             if (!this.$v.user.$invalid) {
                 this.$store.commit("all/loading", true);

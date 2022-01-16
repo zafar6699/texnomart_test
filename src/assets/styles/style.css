@@ -37,6 +37,19 @@ a {
   margin-top: 96px;
 }
 
+.mt-25 {
+  margin-top: 25px;
+}
+
+.btn-delete-form {
+  background-color: #f46a6a;
+  color: #fff;
+  padding: 10px 25px;
+  border-radius: 8px;
+  -webkit-transform: translateY(30px);
+          transform: translateY(30px);
+}
+
 .container {
   max-width: 1240px;
   padding: 0px 15px;
@@ -74,6 +87,7 @@ a {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   margin: 0px -12px;
+  width: 100%;
 }
 
 .card-2 {
@@ -109,6 +123,12 @@ a {
   padding: 0px 12px;
 }
 
+.title-text {
+  font-size: 24px;
+  color: #333;
+  margin: 20px 0px;
+}
+
 div.form-group {
   margin-bottom: 24px;
 }
@@ -122,10 +142,32 @@ div.form-group h4 {
   color: #201918;
 }
 
+div.form-group button {
+  height: 40px;
+  padding: 5px 20px;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-right: 15px;
+}
+
+div.form-group button.btn-success {
+  color: #07a287;
+  background: rgba(7, 162, 135, 0.1);
+}
+
+div.form-group button.btn-danger {
+  color: #ff6363;
+  background: rgba(255, 99, 99, 0.1);
+}
+
+div.form-group div.input-div {
+  position: relative;
+}
+
 div.form-group div.input-div input {
   background: #f7f7f7;
   border-radius: 4px;
-  height: 48px;
+  height: 40px;
   padding: 0px 16px;
   width: 100%;
   font-weight: normal;
@@ -169,10 +211,21 @@ div.form-group div.input-div input:focus {
   background: #fff;
 }
 
+div.form-group div.input-div button.eye {
+  width: 20px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  z-index: 4;
+  color: #333;
+}
+
 div.form-group div.input-div select {
   background: #f7f7f7;
   border-radius: 4px;
-  height: 48px;
+  height: 40px;
   padding: 0px 16px;
   width: 100%;
   border: 1px solid #999;
@@ -212,7 +265,7 @@ div.form-group div.input-div select::placeholder {
 
 div.form-group div.input-div select:focus {
   outline: none;
-  border: 1px solid #e88243;
+  border: 1px solid #fbc100;
   background: #fff;
 }
 
@@ -748,7 +801,7 @@ table.table-client tbody td {
   border: 1px solid #eff2f7;
   text-align: left;
   padding: 12px;
-  font-size: 14px;
+  font-size: 16px;
   color: #495057;
 }
 
@@ -756,25 +809,192 @@ table.table-client tbody tr:nth-child(2n + 1) td {
   background-color: #f8f9fa;
 }
 
-table.table-client tbody td.actions-td button {
-  margin: 0px 5px;
+table.table-client tbody td.actions-td button,
+table.table-client tbody td.actions-td a {
+  margin: 0px 7px;
   display: inline-block;
-  font-size: 13px;
+  font-size: 16px;
 }
 
-table.table-client tbody td.actions-td button.btn-edit {
+table.table-client tbody td.actions-td .btn-edit {
   color: #1c9166;
 }
 
-table.table-client tbody td.actions-td button.btn-delete {
+table.table-client tbody td.actions-td .btn-delete {
   color: #f46a6a;
 }
 
-table.table-client tbody td.actions-td button:hover {
+table.table-client tbody td.actions-td :hover {
   color: #666;
 }
 
 table.table-client tbody td.max-width-300 {
   max-width: 300px;
+}
+
+.form-validation {
+  padding: 40px 0px;
+}
+
+.error-alert {
+  padding: 8px 10px;
+  border-radius: 5px;
+  color: #ff6363;
+  background: rgba(255, 99, 99, 0.1);
+  margin-bottom: 15px;
+}
+
+div.filter-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 20px;
+}
+
+div.filter-box h4 {
+  font-size: 16px;
+  color: #333;
+  margin-right: 15px;
+}
+
+div.filter-box select {
+  background: #f7f7f7;
+  border-radius: 4px;
+  height: 35px;
+  padding: 0px 16px;
+  border: 1px solid #999;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: #201918;
+}
+
+div.filter-box select::-webkit-input-placeholder {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: #605856;
+}
+
+div.filter-box select:-ms-input-placeholder {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: #605856;
+}
+
+div.filter-box select::-ms-input-placeholder {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: #605856;
+}
+
+div.filter-box select::placeholder {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: #605856;
+}
+
+div.filter-box select:focus {
+  outline: none;
+  border: 1px solid #e88243;
+  background: #fff;
+}
+
+.chip {
+  padding: 3px 8px;
+  display: inline-block;
+  border-radius: 3px;
+  font-size: 13px;
+}
+
+.chip-success {
+  color: #07a287;
+  background: rgba(7, 162, 135, 0.1);
+}
+
+.chip-danger {
+  color: #ff6363;
+  background: rgba(255, 99, 99, 0.1);
+}
+
+div.radio-custom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  /* Hide the browser's default radio button */
+  /* Create a custom radio button */
+  /* On mouse-over, add a grey background color */
+  /* When the radio button is checked, add a blue background */
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  /* Show the indicator (dot/circle) when checked */
+  /* Style the indicator (dot/circle) */
+}
+
+div.radio-custom .cont {
+  display: block;
+  position: relative;
+  padding-left: 28px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin-right: 16px;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  color: #201918;
+}
+
+div.radio-custom .cont input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+div.radio-custom .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 2px solid #605856;
+}
+
+div.radio-custom .cont input:checked ~ .checkmark {
+  background-color: #fff;
+  border: 2px solid #fbc100;
+}
+
+div.radio-custom .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  top: 49%;
+  left: 51%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+div.radio-custom .cont input:checked ~ .checkmark:after {
+  display: block;
+}
+
+div.radio-custom .cont .checkmark:after {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #fbc100;
 }
 /*# sourceMappingURL=style.css.map */

@@ -61,6 +61,7 @@ a {
     display: flex;
     flex-wrap: wrap;
     margin: 0px -12px;
+    width: 100%;
 }
 .card-2 {
     width: 50%;
@@ -104,12 +105,28 @@ div.form-group {
         margin-bottom: 8px;
         color: #201918;
     }
+    button {
+        height: 40px;
+        padding: 5px 20px;
+        border-radius: 5px;
+        font-size: 14px;
+        margin-right: 15px;
+    }
+
+    button.btn-success {
+        color: #07a287;
+        background: rgba(7, 162, 135, 0.1);
+    }
+    button.btn-danger {
+        color: #ff6363;
+        background: rgba(255, 99, 99, 0.1);
+    }
     div.input-div {
         position: relative;
         input {
             background: #f7f7f7;
             border-radius: 4px;
-            height: 48px;
+            height: 40px;
             padding: 0px 16px;
             width: 100%;
             font-weight: normal;
@@ -143,7 +160,7 @@ div.form-group {
         select {
             background: #f7f7f7;
             border-radius: 4px;
-            height: 48px;
+            height: 40px;
             padding: 0px 16px;
             width: 100%;
             border: 1px solid #999;
@@ -160,7 +177,7 @@ div.form-group {
             }
             &:focus {
                 outline: none;
-                border: 1px solid #e88243;
+                border: 1px solid $gc;
                 background: #fff;
             }
         }
@@ -609,7 +626,7 @@ table.table-client {
             border: 1px solid #eff2f7;
             text-align: left;
             padding: 12px;
-            font-size: 14px;
+            font-size: 16px;
             color: #495057;
         }
         tr:nth-child(2n + 1) {
@@ -618,19 +635,20 @@ table.table-client {
             }
         }
         td.actions-td {
-            button {
-                margin: 0px 5px;
+            button,
+            a {
+                margin: 0px 7px;
                 display: inline-block;
-                font-size: 13px;
+                font-size: 16px;
             }
-            button.btn-edit {
+            .btn-edit {
                 color: #1c9166;
             }
-            button.btn-delete {
+            .btn-delete {
                 color: #f46a6a;
             }
 
-            button:hover {
+            :hover {
                 color: #666;
             }
         }
@@ -680,5 +698,89 @@ div.filter-box {
             border: 1px solid #e88243;
             background: #fff;
         }
+    }
+}
+.chip {
+    padding: 3px 8px;
+    display: inline-block;
+    border-radius: 3px;
+    font-size: 13px;
+}
+.chip-success {
+    color: #07a287;
+    background: rgba(7, 162, 135, 0.1);
+}
+.chip-danger {
+    color: #ff6363;
+    background: rgba(255, 99, 99, 0.1);
+}
+div.radio-custom {
+    display: flex;
+    align-items: center;
+    .cont {
+        display: block;
+        position: relative;
+        padding-left: 28px;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        margin-right: 16px;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 20px;
+
+        color: #201918;
+    }
+
+    /* Hide the browser's default radio button */
+    .cont input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    /* Create a custom radio button */
+    .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 20px;
+        width: 20px;
+        background-color: #fff;
+        border-radius: 50%;
+        border: 2px solid #605856;
+    }
+
+    /* On mouse-over, add a grey background color */
+
+    /* When the radio button is checked, add a blue background */
+    .cont input:checked ~ .checkmark {
+        background-color: #fff;
+        border: 2px solid $gc;
+    }
+
+    /* Create the indicator (the dot/circle - hidden when not checked) */
+    .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+        top: 49%;
+        left: 51%;
+        transform: translate(-50%, -50%);
+    }
+
+    /* Show the indicator (dot/circle) when checked */
+    .cont input:checked ~ .checkmark:after {
+        display: block;
+    }
+
+    /* Style the indicator (dot/circle) */
+    .cont .checkmark:after {
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        background: $gc;
     }
 }
