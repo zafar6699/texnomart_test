@@ -1,29 +1,120 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-
-Vue.use(VueRouter)
+import Vue from "vue";
+import VueRouter from "vue-router";
+import store from "../store";
+Vue.use(VueRouter);
 
 const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
-]
+    {
+        path: "/",
+        component: () =>
+            import(
+                /* webpackChunkName: "about" */ "../pages/layouts/default.vue"
+            ),
+        meta: {
+            auth: true,
+        },
+        children: [
+            {
+                path: "",
+                name: "index",
+                component: function () {
+                    return import(
+                        /* webpackChunkName: "about" */
+                        "@/pages/index"
+                    );
+                },
+            },
+            {
+                path: "form",
+                name: "form",
+                component: function () {
+                    return import(
+                        /* webpackChunkName: "about" */
+                        "@/pages/form"
+                    );
+                },
+            },
+            {
+                path: "test",
+                name: "test",
+                component: function () {
+                    return import(
+                        /* webpackChunkName: "about" */
+                        "@/pages/test"
+                    );
+                },
+            },
+            {
+                path: "test/create",
+                name: "test-create",
+                component: function () {
+                    return import(
+                        /* webpackChunkName: "about" */
+                        "@/pages/test/create"
+                    );
+                },
+            },
+            {
+                path: "test/start",
+                name: "test-start",
+                component: function () {
+                    return import(
+                        /* webpackChunkName: "about" */
+                        "@/pages/test/start"
+                    );
+                },
+            },
+            {
+                path: "test/result",
+                name: "test-result",
+                component: function () {
+                    return import(
+                        /* webpackChunkName: "about" */
+                        "@/pages/test/result"
+                    );
+                },
+            },
+        ],
+    },
+
+    {
+        path: "/",
+        component: () =>
+            import(
+                /* webpackChunkName: "about" */ "../pages/layouts/empty.vue"
+            ),
+        children: [
+            {
+                path: "login",
+                name: "login",
+                component: function () {
+                    return import(
+                        /* webpackChunkName: "about" */
+                        "@/pages/auth/login"
+                    );
+                },
+            },
+        ],
+    },
+];
 
 const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes
-})
+    mode: "history",
+    base: process.env.BASE_URL,
+    routes,
+});
+router.beforeEach((to, from, next) => {
+    let isAuth = to.matched.some((record) => record.meta.auth);
+    let loggedIn = store.state.auth.user ? true : false;
 
-export default router
+    if (isAuth) {
+        if (loggedIn) {
+            next();
+            return;
+        }
+        next({ name: `login` });
+    } else {
+        next();
+    }
+});
+export default router;
